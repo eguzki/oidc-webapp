@@ -44,7 +44,7 @@ router.get('/profile', function(req, res, next) {
 /* GET the profile of the current authenticated user */
 router.get('/echo-api', function(req, res, next) {
   request.get(
-    `${ process.env.UPSTREAM_ENDPOINT }/pets`,
+    `${ process.env.UPSTREAM_ENDPOINT }/cats/cats`,
     {
     'auth': {
       'bearer': req.session.accessToken
@@ -53,6 +53,8 @@ router.get('/echo-api', function(req, res, next) {
     console.log("response of echo api")
     console.log("err")
     console.log(err)
+    console.log('response status')
+    console.log(response.statusCode);
     console.log('Echo api response')
     console.log(body);
 
